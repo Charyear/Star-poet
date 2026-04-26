@@ -22,15 +22,28 @@
   --animate-fade-rise-delay-2: fade-rise 0.8s ease-out 0.4s both;
 
   @keyframes fade-rise {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
 @layer base {
-  *, ::after, ::before, ::backdrop, ::file-selector-button {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
     border-color: var(--color-border, currentColor);
   }
+
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
@@ -58,10 +71,10 @@
   inset: 0;
   border-radius: inherit;
   padding: 1.4px;
-  background: linear-gradient(180deg, 
-    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, 
-    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, 
-    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 20%,
+      rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%,
+      rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0.45) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -71,13 +84,16 @@
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
+
 .custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: var(--color-border);
   border-radius: 10px;
 }
+
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: var(--color-muted-foreground);
 }
@@ -109,16 +125,19 @@
     transform: translate(0, 0) scale(1) rotate(0deg);
     filter: blur(0px) drop-shadow(0 0 0px white);
   }
+
   15% {
     opacity: 1;
     transform: translate(5px, -5px) scale(1.05) rotate(5deg);
     filter: blur(0.5px) drop-shadow(0 0 2px white);
   }
+
   80% {
     opacity: 0.8;
     transform: translate(calc(var(--tw-translate-x) * 0.8), calc(var(--tw-translate-y) * 0.8)) scale(0.4) rotate(var(--tw-rotate));
     filter: blur(2px) drop-shadow(0 0 5px white);
   }
+
   100% {
     opacity: 0;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) scale(0) rotate(calc(var(--tw-rotate) * 1.5));
@@ -133,16 +152,26 @@
 
 /* Floating Orb Styles */
 @keyframes orb-float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-20px) scale(1.05); }
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
 }
 
 @keyframes orb-glow {
-  0%, 100% { 
+
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.3);
   }
-  50% { 
+
+  50% {
     box-shadow: 0 0 40px rgba(255, 255, 255, 0.4), inset 0 0 40px rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.6);
   }
@@ -151,16 +180,42 @@
 /* Fluid Orb Styles */
 /* Enhanced Fluid Orb with specific user requirements */
 @keyframes morph-irregular {
-  0% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; transform: rotate(0deg); }
-  25% { border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%; transform: rotate(90deg); }
-  50% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; transform: rotate(180deg); }
-  75% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; transform: rotate(270deg); }
-  100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; transform: rotate(360deg); }
+  0% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: rotate(0deg);
+  }
+
+  25% {
+    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+    transform: rotate(90deg);
+  }
+
+  50% {
+    border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
+    transform: rotate(180deg);
+  }
+
+  75% {
+    border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
+    transform: rotate(270deg);
+  }
+
+  100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes slow-breath {
-  0%, 100% { transform: scale(0.9) translateY(0); }
-  50% { transform: scale(1.15) translateY(-10px); }
+
+  0%,
+  100% {
+    transform: scale(0.9) translateY(0);
+  }
+
+  50% {
+    transform: scale(1.15) translateY(-10px);
+  }
 }
 
 .fluid-orb {
@@ -210,20 +265,41 @@
 }
 
 @keyframes wave-rise {
-  0%, 100% { height: 4px; opacity: 0.3; }
-  50% { height: 12px; opacity: 0.8; }
+
+  0%,
+  100% {
+    height: 4px;
+    opacity: 0.3;
+  }
+
+  50% {
+    height: 12px;
+    opacity: 0.8;
+  }
 }
 
 /* Individual bar delays for rhythmic feel */
-.orb-wave-bar:nth-child(1) { animation-delay: 0.0s; }
-.orb-wave-bar:nth-child(2) { animation-delay: 0.2s; }
-.orb-wave-bar:nth-child(3) { animation-delay: 0.4s; }
-.orb-wave-bar:nth-child(4) { animation-delay: 0.1s; }
+.orb-wave-bar:nth-child(1) {
+  animation-delay: 0.0s;
+}
+
+.orb-wave-bar:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.orb-wave-bar:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.orb-wave-bar:nth-child(4) {
+  animation-delay: 0.1s;
+}
 
 /* Wrapper for the slow breathing effect to separate it from the fast morphing */
 .orb-container {
   position: absolute;
-  bottom: 1.2rem; /* Even closer to bottom */
+  bottom: 1.2rem;
+  /* Even closer to bottom */
   left: 50%;
   transform: translateX(-50%);
   animation: slow-breath 10s ease-in-out infinite;
@@ -298,12 +374,19 @@
   pointer-events: none;
   z-index: 100;
   filter: blur(1px);
-  box-shadow: 0 0 10px white, 0 0 20px rgba(255,255,255,0.5);
+  box-shadow: 0 0 10px white, 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 @keyframes meteor-fade {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 0; transform: scale(0.1); }
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.1);
+  }
 }
 
 .animate-meteor {
@@ -311,6 +394,76 @@
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rhythmic-wave {
+
+  0%,
+  100% {
+    height: 8px;
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+
+  50% {
+    height: 24px;
+    transform: translateY(-4px);
+    opacity: 0.8;
+  }
+}
+
+.loading-wave-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 5px;
+  height: 40px;
+  position: absolute;
+  bottom: 2.5rem;
+  left: 12rem;
+  /* Bottom left alignment */
+  transform: none;
+  z-index: 30;
+}
+
+.loading-wave-bar {
+  width: 3px;
+  background: white;
+  border-radius: 2px;
+  animation: rhythmic-wave 1.2s ease-in-out infinite;
+}
+
+.loading-wave-bar:nth-child(1) {
+  animation-delay: 0.0s;
+}
+
+.loading-wave-bar:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.loading-wave-bar:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.loading-wave-bar:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.loading-wave-bar:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+.loading-wave-bar:nth-child(6) {
+  animation-delay: 0.2s;
+}
+
+.loading-wave-bar:nth-child(7) {
+  animation-delay: 0.4s;
 }
