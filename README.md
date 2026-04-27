@@ -1,9 +1,9 @@
 # Star-poet
 The Milky Way is ink, the mountains and rivers are pen  
 
-backend: pip install fastapi openai uvicorn 
+backend: pip install fastapi openai uvicorn python-multipart
 
-uvicorn nim_api_server:app --host 0.0.0.0 --port 8000  
+python -m uvicorn nim_api_server:app --reload --port 8000 
 
 frontend: cd/ui npm install 
 
